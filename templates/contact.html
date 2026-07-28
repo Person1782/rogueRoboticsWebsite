@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>Contact Us</h1>
+<p>Send a message to Rogue Robotics.</p>
+
+{% if success %}
+    <p>Thanks, {{ name }}. Your message was sent.</p>
+{% endif %}
+
+{% if error %}
+    <p>{{ error }}</p>
+{% endif %}
+
+<form action="/contact" method="post">
+    <label for="name">Name</label><br>
+    <input type="text" id="name" name="name"><br><br>
+
+    <label for="email">Email</label><br>
+    <input type="email" id="email" name="email"><br><br>
+
+    <label for="message">Message</label><br>
+    <textarea id="message" name="message" rows="6"></textarea><br><br>
+
+    <button type="submit">Send</button>
+</form>
+{% endblock %}
