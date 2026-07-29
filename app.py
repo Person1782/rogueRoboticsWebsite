@@ -2,7 +2,7 @@ from flask import Flask, render_template, request, redirect, session
 from cs50 import SQL
 
 app = Flask(__name__)
-app.secret_key = "rogueRobotics@2029"
+app.secret_key = "testPassword"  # Replace with a secure secret key in production
 db = SQL("sqlite:///contact.db")
 
 
