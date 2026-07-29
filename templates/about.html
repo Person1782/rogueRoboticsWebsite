@@ -1,5 +1,83 @@
 {% extends "base.html" %}
+
+{% block title %}About{% endblock %}
+
 {% block content %}
-    <h1>About Rogue Robotics</h1>
-    <p>We are a student-led robotics team.</p>
+
+<section class="about-hero">
+    <img src="{{ url_for('static', filename='images/about-hero-team.jpg') }}" alt="Rogue Robotics team">
+    <div class="about-hero-overlay">
+        <h1>About Rogue Robotics</h1>
+    </div>
+</section>
+
+<section class="about-story-section">
+    <div class="about-story-grid">
+        <div class="about-story-text">
+            <h2>Our Mission</h2>
+            <p>
+                Rogue Robotics is a student-led VEX V5 team focused on engineering,
+                teamwork, and growth. We build competitive robots while creating
+                opportunities for younger students to learn design, coding, strategy, and leadership.
+            </p>
+        </div>
+        <div class="about-story-image">
+            <img src="{{ url_for('static', filename='images/about-mission.jpg') }}" alt="Rogue Robotics mission photo">
+        </div>
+    </div>
+</section>
+
+<section class="about-history-section">
+    <div class="about-history-grid">
+        <div class="about-history-images">
+            <img src="{{ url_for('static', filename='images/about-history-1.jpg') }}" alt="Rogue Robotics at competition">
+            <img src="{{ url_for('static', filename='images/about-history-2.jpg') }}" alt="Rogue Robotics working on robot">
+        </div>
+        <div class="about-history-text">
+            <h2>Our History</h2>
+            <p>
+                Rogue Robotics was built by students who wanted to compete, improve,
+                and create something meaningful together. Through every build season,
+                scrimmage, and event, our team has kept growing in skill, confidence,
+                and ambition.
+            </p>
+            <p>
+                We continue to push ourselves in VEX V5 while also giving back through
+                outreach and support for younger students interested in robotics.
+            </p>
+        </div>
+    </div>
+</section>
+
+<section class="team-section">
+    <div class="team-inner">
+        <h2>Our Team</h2>
+        <div class="team-grid">
+            <div class="team-card">
+                <img src="{{ url_for('static', filename='images/member1.jpg') }}" alt="Team member 1">
+                <h3>Member Name</h3>
+                <p>Role</p>
+            </div>
+
+            <div class="team-card">
+                <img src="{{ url_for('static', filename='images/member2.jpg') }}" alt="Team member 2">
+                <h3>Member Name</h3>
+                <p>Role</p>
+            </div>
+
+            <div class="team-card">
+                <img src="{{ url_for('static', filename='images/member3.jpg') }}" alt="Team member 3">
+                <h3>Member Name</h3>
+                <p>Role</p>
+            </div>
+
+            <div class="team-card">
+                <img src="{{ url_for('static', filename='images/member4.jpg') }}" alt="Team member 4">
+                <h3>Member Name</h3>
+                <p>Role</p>
+            </div>
+        </div>
+    </div>
+</section>
+
 {% endblock %}

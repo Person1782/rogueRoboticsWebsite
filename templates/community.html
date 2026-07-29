@@ -1,5 +1,160 @@
 {% extends "base.html" %}
+
+{% block title %}Community{% endblock %}
+
 {% block content %}
-    <h1>Community</h1>
-    <p>This page will show outreach and events.</p>
+
+<section class="about-hero">
+    <img src="{{ url_for('static', filename='images/community-hero.jpg') }}" alt="Rogue Robotics community outreach">
+    <div class="about-hero-overlay">
+        <h1>Community</h1>
+    </div>
+</section>
+
+<section class="community-intro-section">
+    <div class="community-intro-inner">
+        <h2>Sharing robotics with our community</h2>
+        <p>
+            Rogue Robotics believes robotics should reach beyond competition. Through presentations,
+            workshops, and hands-on learning, we work to inspire younger students and make STEM more accessible.
+        </p>
+    </div>
+</section>
+
+<section class="community-event-section dark-section">
+    <div class="community-event-layout">
+        <div class="community-event-text">
+            <h2>Thornton Middle School Presentation</h2>
+            <p>
+                We presented at Thornton Middle School to introduce students to robotics,
+                teamwork, and engineering. Our team shared what VEX V5 is, how competitions work,
+                and what it is like to design, build, and program a robot.
+            </p>
+            <u
+            <ul>
+                >Introduced students to VEX V5 robotics.</l/li>
+                >Shared our experience as a student-led team.</l/li>
+                >Encouraged younger students to explore STEM.</li>
+            </ul>
+        </div>
+
+        <div class="community-carousel" data-carousel>
+            <button class="carousel-btn prev" type="button" data-carousel-prev>&#10094;</button>
+
+            <div class="community-carousel-track">
+                <div class="community-slide active">
+                    <img src="{{ url_for('static', filename='images/thornton-1.jpg') }}" alt="Rogue Robotics presenting at Thornton Middle School">
+                </div>
+                <div class="community-slide">
+                    <img src="{{ url_for('static', filename='images/thornton-2.jpg') }}" alt="Students watching the Thornton presentation">
+                </div>
+                <div class="community-slide">
+                    <img src="{{ url_for('static', filename='images/thornton-3.jpg') }}" alt="Rogue Robotics speaking with students at Thornton Middle School">
+                </div>
+            </div>
+
+            <button class="carousel-btn next" type="button" data-carousel-next>&#10095;</button>
+        </div>
+    </div>
+</section>
+
+<section class="community-event-section light-section">
+    <div class="community-event-layout reverse">
+        <div class="community-carousel" data-carousel>
+            <button class="carousel-btn prev" type="button" data-carousel-prev>&#10094;</button>
+
+            <div class="community-carousel-track">
+                <div class="community-slide active">
+                    <img src="{{ url_for('static', filename='images/camp-1.jpg') }}" alt="Rogue Robotics summer camp">
+                </div>
+                <div class="community-slide">
+                    <img src="{{ url_for('static', filename='images/camp-2.jpg') }}" alt="Students participating in summer camp activities">
+                </div>
+                <div class="community-slide">
+                    <img src="{{ url_for('static', filename='images/camp-3.jpg') }}" alt="Hands-on robotics learning during summer camp">
+                </div>
+            </div>
+
+            <button class="carousel-btn next" type="button" data-carousel-next>&#10095;</button>
+        </div>
+
+        <div class="community-event-text">
+            <h2>Summer Camp</h2>
+            <p>
+                We held a summer camp to give students a more hands-on robotics experience.
+                The camp focused on learning, teamwork, and problem-solving through engaging STEM activities.
+            </p>
+            <u
+            <ul>
+                >Created a hands-on robotics learning environment.</l/li>
+                >Helped students build confidence with STEM concepts.</l/li>
+                >Made engineering more accessible and fun.</li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+<section class="community-impact-section">
+    <div class="community-impact-inner">
+        <h2>Our Impact</h2>
+        <div class="community-impact-grid">
+            <div class="impact-card">
+                <h3>2</h3>
+                <p>Community outreach events.</p>
+            </div>
+            <div class="impact-card">
+                <h3>Local</h3>
+                <p>Programs focused on students in our area.</p>
+            </div>
+            <div class="impact-card">
+                <h3>STEM</h3>
+                <p>Hands-on learning beyond competition.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script>
+    document.querySelectorAll("[data-carousel]").forEach((carousel) => {
+        const slides = carousel.querySelectorAll(".community-slide");
+        const prevBtn = carousel.querySelector("[data-carousel-prev]");
+        const nextBtn = carousel.querySelector("[data-carousel-next]");
+        let index = 0;
+        let autoRotate;
+
+        function showSlide(newIndex) {
+            slides[index].classList.remove("active");
+            index = (newIndex + slides.length) % slides.length;
+            slides[index].classList.add("active");
+        }
+
+        function startAutoRotate() {
+            autoRotate = setInterval(() => {
+                showSlide(index + 1);
+            }, 3000);
+        }
+
+        function stopAutoRotate() {
+            clearInterval(autoRotate);
+        }
+
+        prevBtn.addEventListener("click", () => {
+            stopAutoRotate();
+            showSlide(index - 1);
+            startAutoRotate();
+        });
+
+        nextBtn.addEventListener("click", () => {
+            stopAutoRotate();
+            showSlide(index + 1);
+            startAutoRotate();
+        });
+
+        carousel.addEventListener("mouseenter", stopAutoRotate);
+        carousel.addEventListener("mouseleave", startAutoRotate);
+
+        startAutoRotate();
+    });
+</script>
+
 {% endblock %}

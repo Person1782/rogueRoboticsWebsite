@@ -4,49 +4,37 @@
 
 {% block content %}
 
-<section class="hero-carousel">
-    <div class="carousel-slide active">
-        <img src="{{ url_for('static', filename='images/hero-robot.jpg') }}"
-             alt="Rogue Robotics robot on the field">
-    </div>
-
-    <div class="hero-overlay">
+<section class="about-hero home-hero">
+    <img src="{{ url_for('static', filename='images/hero-robot.jpg') }}" alt="Rogue Robotics robot on the field">
+    <div class="about-hero-overlay">
         <h1>Rogue Robotics</h1>
     </div>
 </section>
 
-<section class="section intro-section">
-    <div class="section-inner narrow">
-        <h2>Rogue Robotics Mission</h2>
-        <p>
-            Rogue Robotics is a student-led VEX V5 team focused on engineering, leadership,
-            and outreach. We design, build, and program competitive robots while helping
-            inspire younger students through STEM.
-        </p>
-        <a href="{{ url_for('about') }}" class="btn-primary">Learn more about us</a>
-    </div>
-</section>
-
-<section class="section split-section">
-    <div class="section-inner split">
-        <div class="split-text">
-            <h2>Who We Are</h2>
+<section class="about-story-section">
+    <div class="about-story-grid">
+        <div class="about-story-text">
+            <h2>Rogue Robotics Mission</h2>
             <p>
-                Our team collaborates across design, build, programming, and driving to create
-                robots that improve every match. We’re based in Fremont and compete in VEX V5.
+                Rogue Robotics is a student-led VEX V5 team focused on engineering, leadership,
+                and outreach. We design, build, and program competitive robots while helping
+                inspire younger students through STEM.
             </p>
-            <a href="{{ url_for('about') }}" class="btn-secondary">About Rogue Robotics</a>
+            <a href="{{ url_for('about') }}" class="page-button light-button">Learn more about us</a>
         </div>
-        <div class="split-image">
-            <img src="{{ url_for('static', filename='images/about-team.jpg') }}"
-                 alt="Rogue Robotics team photo">
+        <div class="about-story-image">
+            <img src="{{ url_for('static', filename='images/about-team.jpg') }}" alt="Rogue Robotics team photo">
         </div>
     </div>
 </section>
 
-<section class="section split-section">
-    <div class="section-inner split reverse">
-        <div class="split-text">
+<section class="about-history-section">
+    <div class="about-history-grid">
+        <div class="about-history-images">
+            <img src="{{ url_for('static', filename='images/about-team.jpg') }}" alt="Rogue Robotics team">
+            <img src="{{ url_for('static', filename='images/vex-field.jpg') }}" alt="VEX V5 competition field">
+        </div>
+        <div class="about-history-text">
             <h2>What is VEX V5?</h2>
             <p>
                 VEX V5 is a robotics competition where teams design, build, and program robots
@@ -57,30 +45,11 @@
                 Rogue Robotics uses the VEX V5 system to prototype mechanisms, tune code, and
                 prepare our robot to handle real match challenges.
             </p>
-            <a href="https://www.vexrobotics.com/v5"
-               target="_blank" rel="noopener noreferrer"
-               class="btn-primary">
+            <a href="https://www.vexrobotics.com/v5" target="_blank" rel="noopener noreferrer" class="page-button dark-button">
                 Learn more about VEX V5
             </a>
         </div>
-        <div class="split-image">
-            <img src="{{ url_for('static', filename='images/vex-field.jpg') }}"
-                 alt="VEX V5 competition field">
-        </div>
     </div>
 </section>
-
-<script>
-    const slides = document.querySelectorAll(".carousel-slide");
-    let currentSlide = 0;
-
-    if (slides.length > 0) {
-        setInterval(() => {
-            slides[currentSlide].classList.remove("active");
-            currentSlide = (currentSlide + 1) % slides.length;
-            slides[currentSlide].classList.add("active");
-        }, 3500);
-    }
-</script>
 
 {% endblock %}

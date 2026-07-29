@@ -16,11 +16,6 @@ def about():
     return render_template("about.html")
 
 
-@app.route("/robots")
-def robots():
-    return render_template("robots.html")
-
-
 @app.route("/community")
 def community():
     return render_template("community.html")
