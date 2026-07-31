@@ -1,10 +1,16 @@
-from flask import Flask, render_template, request, redirect, session
+import os
+
+from flask import Flask, render_template, request, redirect, session, send_from_directory
 from cs50 import SQL
 
 app = Flask(__name__)
 app.secret_key = "testPassword"  # Replace with a secure secret key in production
 db = SQL("sqlite:///contact.db")
 
+
+@app.route("/pictures/<path:filename>")
+def pictures(filename):
+    return send_from_directory(os.path.join(app.root_path, "pictures"), filename)
 
 @app.route("/")
 def home():

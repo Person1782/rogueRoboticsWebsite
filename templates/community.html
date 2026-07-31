@@ -30,11 +30,10 @@
                 teamwork, and engineering. Our team shared what VEX V5 is, how competitions work,
                 and what it is like to design, build, and program a robot.
             </p>
-            <u
             <ul>
-                >Introduced students to VEX V5 robotics.</l/li>
-                >Shared our experience as a student-led team.</l/li>
-                >Encouraged younger students to explore STEM.</li>
+                <li>Introduced students to VEX V5 robotics.</li>
+                <li>Shared our experience as a student-led team.</li>
+                <li>Encouraged younger students to explore STEM.</li>
             </ul>
         </div>
 
@@ -43,13 +42,58 @@
 
             <div class="community-carousel-track">
                 <div class="community-slide active">
-                    <img src="{{ url_for('static', filename='images/thornton-1.jpg') }}" alt="Rogue Robotics presenting at Thornton Middle School">
+                    <img src="{{ url_for('pictures', filename='thorntonShowcase2026/IMG_1936.jpeg') }}" alt="Thornton showcase photo 1">
                 </div>
                 <div class="community-slide">
-                    <img src="{{ url_for('static', filename='images/thornton-2.jpg') }}" alt="Students watching the Thornton presentation">
+                    <img src="{{ url_for('pictures', filename='thorntonShowcase2026/IMG_1937.jpeg') }}" alt="Thornton showcase photo 2">
                 </div>
                 <div class="community-slide">
-                    <img src="{{ url_for('static', filename='images/thornton-3.jpg') }}" alt="Rogue Robotics speaking with students at Thornton Middle School">
+                    <img src="{{ url_for('pictures', filename='thorntonShowcase2026/IMG_1939.jpeg') }}" alt="Thornton showcase photo 4">
+                </div>
+                <div class="community-slide">
+                    <img src="{{ url_for('pictures', filename='thorntonShowcase2026/IMG_1944.jpeg') }}" alt="Thornton showcase photo 7">
+                </div>
+                <div class="community-slide">
+                    <img src="{{ url_for('pictures', filename='thorntonShowcase2026/IMG_1945.jpeg') }}" alt="Thornton showcase photo 8">
+                </div>
+                <div class="community-slide">
+                    <img src="{{ url_for('pictures', filename='thorntonShowcase2026/IMG_1946.jpeg') }}" alt="Thornton showcase photo 9">
+                </div>
+                <div class="community-slide">
+                    <img src="{{ url_for('pictures', filename='thorntonShowcase2026/IMG_1948.jpeg') }}" alt="Thornton showcase photo 11">
+                </div>
+                <div class="community-slide">
+                    <img src="{{ url_for('pictures', filename='thorntonShowcase2026/IMG_1949.jpeg') }}" alt="Thornton showcase photo 12">
+                </div>
+                <div class="community-slide">
+                    <img src="{{ url_for('pictures', filename='thorntonShowcase2026/IMG_1950.jpeg') }}" alt="Thornton showcase photo 13">
+                </div>
+                <div class="community-slide">
+                    <img src="{{ url_for('pictures', filename='thorntonShowcase2026/IMG_1955.jpeg') }}" alt="Thornton showcase photo 16">
+                </div>
+                <div class="community-slide">
+                    <img src="{{ url_for('pictures', filename='thorntonShowcase2026/IMG_1956.jpeg') }}" alt="Thornton showcase photo 17">
+                </div>
+                <div class="community-slide">
+                    <img src="{{ url_for('pictures', filename='thorntonShowcase2026/IMG_1959.jpeg') }}" alt="Thornton showcase photo 20">
+                </div>
+                <div class="community-slide">
+                    <img src="{{ url_for('pictures', filename='thorntonShowcase2026/IMG_1961.jpeg') }}" alt="Thornton showcase photo 22">
+                </div>
+                <div class="community-slide">
+                    <img src="{{ url_for('pictures', filename='thorntonShowcase2026/IMG_1964.jpeg') }}" alt="Thornton showcase photo 25">
+                </div>
+                <div class="community-slide">
+                    <img src="{{ url_for('pictures', filename='thorntonShowcase2026/IMG_1970.jpeg') }}" alt="Thornton showcase photo 30">
+                </div>
+                <div class="community-slide">
+                    <img src="{{ url_for('pictures', filename='thorntonShowcase2026/IMG_1971.jpeg') }}" alt="Thornton showcase photo 31">
+                </div>
+                <div class="community-slide">
+                    <img src="{{ url_for('pictures', filename='thorntonShowcase2026/IMG_1976.jpeg') }}" alt="Thornton showcase photo 36">
+                </div>
+                <div class="community-slide">
+                    <img src="{{ url_for('pictures', filename='thorntonShowcase2026/IMG_1979.jpeg') }}" alt="Thornton showcase photo 38">
                 </div>
             </div>
 
@@ -84,11 +128,10 @@
                 We held a summer camp to give students a more hands-on robotics experience.
                 The camp focused on learning, teamwork, and problem-solving through engaging STEM activities.
             </p>
-            <u
             <ul>
-                >Created a hands-on robotics learning environment.</l/li>
-                >Helped students build confidence with STEM concepts.</l/li>
-                >Made engineering more accessible and fun.</li>
+                <li>Created a hands-on robotics learning environment.</li>
+                <li>Helped students build confidence with STEM concepts.</li>
+                <li>Made engineering more accessible and fun.</li>
             </ul>
         </div>
     </div>
@@ -116,36 +159,39 @@
 
 <script>
     document.querySelectorAll("[data-carousel]").forEach((carousel) => {
-        const slides = carousel.querySelectorAll(".community-slide");
+        const slides = Array.from(carousel.querySelectorAll(".community-slide"));
         const prevBtn = carousel.querySelector("[data-carousel-prev]");
         const nextBtn = carousel.querySelector("[data-carousel-next]");
         let index = 0;
         let autoRotate;
 
         function showSlide(newIndex) {
+            if (!slides.length) return;
             slides[index].classList.remove("active");
             index = (newIndex + slides.length) % slides.length;
             slides[index].classList.add("active");
         }
 
         function startAutoRotate() {
+            stopAutoRotate();
             autoRotate = setInterval(() => {
                 showSlide(index + 1);
             }, 3000);
         }
 
         function stopAutoRotate() {
-            clearInterval(autoRotate);
+            if (autoRotate) {
+                clearInterval(autoRotate);
+                autoRotate = null;
+            }
         }
 
-        prevBtn.addEventListener("click", () => {
-            stopAutoRotate();
+        prevBtn?.addEventListener("click", () => {
             showSlide(index - 1);
             startAutoRotate();
         });
 
-        nextBtn.addEventListener("click", () => {
-            stopAutoRotate();
+        nextBtn?.addEventListener("click", () => {
             showSlide(index + 1);
             startAutoRotate();
         });
