@@ -6,45 +6,6 @@ body {
     line-height: 1.6;
 }
 
-.community-carousel {
-    width: 100%;
-    max-width: 580px;
-}
-
-.community-carousel-track {
-    position: relative;
-    width: 100%;
-    min-height: 360px;
-    overflow: hidden;
-    border-radius: 16px;
-    background: #f3f3f3;
-}
-
-.community-slide {
-    position: absolute;
-    inset: 0;
-    opacity: 0;
-    transition: opacity 0.35s ease;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: #f3f3f3;
-}
-
-.community-slide.active {
-    opacity: 1;
-    z-index: 1;
-}
-
-.community-slide img {
-    width: 100%;
-    height: 100%;
-    max-height: 360px;
-    object-fit: cover;
-    display: block;
-    border-radius: 16px;
-}
-
 nav {
     background-color: maroon;
     padding: 18px 32px;
@@ -97,6 +58,49 @@ button:hover {
     opacity: 0.9;
 }
 
+.page-button,
+.intro-button,
+.button {
+    display: inline-block;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 13px 24px;
+    border-radius: 999px;
+    margin-top: 8px;
+    transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.page-button:hover,
+.intro-button:hover,
+.button:hover {
+    opacity: 0.9;
+    transform: translateY(-1px);
+}
+
+.light-button {
+    background: white;
+    color: maroon;
+}
+
+.dark-button {
+    background: white;
+    color: #8b1e2d;
+}
+
+.button,
+.intro-button {
+    background: maroon;
+    color: white;
+}
+
+.home-info {
+    margin-top: 40px;
+}
+
+.home-info h2 {
+    color: maroon;
+}
+
 .about-hero {
     position: relative;
     height: 72vh;
@@ -132,7 +136,7 @@ button:hover {
 }
 
 .about-story-section {
-    background: #243b7a;
+    background: #5a0f14;
     padding: 80px 8%;
 }
 
@@ -173,7 +177,7 @@ button:hover {
 }
 
 .about-history-section {
-    background: #2e97ea;
+    background: #8b1e2d;
     padding: 80px 8%;
 }
 
@@ -240,94 +244,6 @@ button:hover {
 .team-card p {
     margin: 0;
     color: #444;
-}
-
-.page-button,
-.intro-button,
-.button {
-    display: inline-block;
-    text-decoration: none;
-    font-weight: bold;
-    padding: 13px 24px;
-    border-radius: 999px;
-    margin-top: 8px;
-    transition: opacity 0.2s ease, transform 0.2s ease;
-}
-
-.page-button:hover,
-.intro-button:hover,
-.button:hover {
-    opacity: 0.9;
-    transform: translateY(-1px);
-}
-
-.light-button {
-    background: white;
-    color: #243b7a;
-}
-
-.dark-button {
-    background: white;
-    color: #1976c9;
-}
-
-.button,
-.intro-button {
-    background: maroon;
-    color: white;
-}
-
-.home-info {
-    margin-top: 40px;
-}
-
-.home-info h2 {
-    color: maroon;
-}
-
-@media (max-width: 900px) {
-    nav {
-        padding: 16px 20px;
-        gap: 14px;
-    }
-
-    .about-hero {
-        height: 56vh;
-        min-height: 320px;
-    }
-
-    .about-hero-overlay h1 {
-        font-size: 2.6rem;
-        text-align: center;
-        letter-spacing: 0.05em;
-    }
-
-    .about-story-section,
-    .about-history-section,
-    .team-section {
-        padding: 60px 6%;
-    }
-
-    .about-story-grid,
-    .about-history-grid {
-        grid-template-columns: 1fr;
-        gap: 32px;
-    }
-
-    .about-story-text h2,
-    .about-history-text h2,
-    .team-section h2 {
-        font-size: 2rem;
-    }
-
-    .about-story-text p,
-    .about-history-text p {
-        font-size: 1rem;
-    }
-
-    .team-grid {
-        grid-template-columns: 1fr;
-    }
 }
 
 .community-intro-section {
@@ -418,6 +334,7 @@ button:hover {
 .community-slide.active {
     opacity: 1;
     pointer-events: auto;
+    z-index: 1;
 }
 
 .community-slide img {
@@ -432,7 +349,7 @@ button:hover {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    background: rgba(0, 0, 0, 0.6);
+    background: rgba(90, 15, 20, 0.7);
     color: white;
     border: none;
     width: 46px;
@@ -447,6 +364,10 @@ button:hover {
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
 }
 
+.carousel-btn:hover {
+    background: #8b1e2d;
+}
+
 .carousel-btn.prev {
     left: 12px;
 }
@@ -456,12 +377,12 @@ button:hover {
 }
 
 .dark-section {
-    background: #243b7a;
+    background: #5a0f14;
     color: white;
 }
 
 .light-section {
-    background: #2e97ea;
+    background: #8b1e2d;
     color: white;
 }
 
@@ -489,9 +410,10 @@ button:hover {
 }
 
 .impact-card {
-    background: #f7f7f7;
+    background: #fff7f7;
     padding: 30px 20px;
     border-radius: 16px;
+    border: 1px solid #e7c9cd;
 }
 
 .impact-card h3 {
@@ -502,20 +424,6 @@ button:hover {
 
 .impact-card p {
     margin: 0;
-}
-
-@media (max-width: 900px) {
-    .community-event-layout,
-    .community-event-layout.reverse,
-    .community-impact-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .community-intro-inner h2,
-    .community-event-text h2,
-    .community-impact-inner h2 {
-        font-size: 2rem;
-    }
 }
 
 .sponsor-hero {
@@ -604,13 +512,64 @@ button:hover {
 }
 
 @media (max-width: 900px) {
-    .sponsor-hero {
-        padding: 80px 6%;
+    nav {
+        padding: 16px 20px;
+        gap: 14px;
     }
 
+    .about-hero {
+        height: 56vh;
+        min-height: 320px;
+    }
+
+    .about-hero-overlay h1 {
+        font-size: 2.6rem;
+        text-align: center;
+        letter-spacing: 0.05em;
+    }
+
+    .about-story-section,
+    .about-history-section,
+    .team-section,
+    .community-intro-section,
+    .community-event-section,
+    .community-impact-section,
+    .sponsor-hero,
+    .sponsor-needed-section {
+        padding: 60px 6%;
+    }
+
+    .about-story-grid,
+    .about-history-grid,
+    .community-event-layout,
+    .community-event-layout.reverse,
+    .community-impact-grid {
+        grid-template-columns: 1fr;
+        gap: 32px;
+    }
+
+    .about-story-text h2,
+    .about-history-text h2,
+    .team-section h2,
+    .community-intro-inner h2,
+    .community-event-text h2,
+    .community-impact-inner h2,
     .sponsor-hero-inner h1,
     .sponsor-needed-inner h2 {
-        font-size: 2.2rem;
+        font-size: 2rem;
+    }
+
+    .about-story-text p,
+    .about-history-text p,
+    .community-intro-inner p,
+    .community-event-text p,
+    .sponsor-hero-inner p,
+    .sponsor-needed-inner p {
+        font-size: 1rem;
+    }
+
+    .team-grid {
+        grid-template-columns: 1fr;
     }
 
     .sponsor-cta-box h3 {

@@ -1,11 +1,9 @@
 {% extends "base.html" %}
-
 {% block title %}Community{% endblock %}
 
 {% block content %}
-
 <section class="about-hero">
-    <img src="{{ url_for('static', filename='images/community-hero.jpg') }}" alt="Rogue Robotics community outreach">
+    <img src="{{ url_for('pictures', filename='collages/community.png') }}" alt="Rogue Robotics community outreach">
     <div class="about-hero-overlay">
         <h1>Community</h1>
     </div>
@@ -26,9 +24,9 @@
         <div class="community-event-text">
             <h2>Thornton Middle School Presentation</h2>
             <p>
-                We presented at Thornton Middle School to introduce students to robotics,
-                teamwork, and engineering. Our team shared what VEX V5 is, how competitions work,
-                and what it is like to design, build, and program a robot.
+                We presented at Thornton Middle School to introduce students to robotics, teamwork, and engineering.
+                Our team shared what VEX V5 is, how competitions work, and what it is like to design, build,
+                and program a robot.
             </p>
             <ul>
                 <li>Introduced students to VEX V5 robotics.</li>
@@ -109,13 +107,58 @@
 
             <div class="community-carousel-track">
                 <div class="community-slide active">
-                    <img src="{{ url_for('static', filename='images/camp-1.jpg') }}" alt="Rogue Robotics summer camp">
+                    <img src="{{ url_for('pictures', filename='summerCamp2026/IMG_2047.jpeg') }}" alt="Summer camp photo 1">
                 </div>
                 <div class="community-slide">
-                    <img src="{{ url_for('static', filename='images/camp-2.jpg') }}" alt="Students participating in summer camp activities">
+                    <img src="{{ url_for('pictures', filename='summerCamp2026/IMG_2048.jpeg') }}" alt="Summer camp photo 2">
                 </div>
                 <div class="community-slide">
-                    <img src="{{ url_for('static', filename='images/camp-3.jpg') }}" alt="Hands-on robotics learning during summer camp">
+                    <img src="{{ url_for('pictures', filename='summerCamp2026/IMG_2049.jpeg') }}" alt="Summer camp photo 3">
+                </div>
+                <div class="community-slide">
+                    <img src="{{ url_for('pictures', filename='summerCamp2026/IMG_2051.jpeg') }}" alt="Summer camp photo 4">
+                </div>
+                <div class="community-slide">
+                    <img src="{{ url_for('pictures', filename='summerCamp2026/IMG_2052.jpeg') }}" alt="Summer camp photo 5">
+                </div>
+                <div class="community-slide">
+                    <img src="{{ url_for('pictures', filename='summerCamp2026/IMG_2053.jpeg') }}" alt="Summer camp photo 6">
+                </div>
+                <div class="community-slide">
+                    <img src="{{ url_for('pictures', filename='summerCamp2026/IMG_2054.jpeg') }}" alt="Summer camp photo 7">
+                </div>
+                <div class="community-slide">
+                    <img src="{{ url_for('pictures', filename='summerCamp2026/IMG_3532.jpeg') }}" alt="Summer camp photo 14">
+                </div>
+                <div class="community-slide">
+                    <img src="{{ url_for('pictures', filename='summerCamp2026/IMG_3533.jpeg') }}" alt="Summer camp photo 15">
+                </div>
+                <div class="community-slide">
+                    <img src="{{ url_for('pictures', filename='summerCamp2026/IMG_3535.jpeg') }}" alt="Summer camp photo 17">
+                </div>
+                <div class="community-slide">
+                    <img src="{{ url_for('pictures', filename='summerCamp2026/IMG_3536.jpeg') }}" alt="Summer camp photo 18">
+                </div>
+                <div class="community-slide">
+                    <img src="{{ url_for('pictures', filename='summerCamp2026/IMG_3538.jpeg') }}" alt="Summer camp photo 20">
+                </div>
+                <div class="community-slide">
+                    <img src="{{ url_for('pictures', filename='summerCamp2026/IMG_3540.jpeg') }}" alt="Summer camp photo 22">
+                </div>
+                <div class="community-slide">
+                    <img src="{{ url_for('pictures', filename='summerCamp2026/IMG_3583.jpeg') }}" alt="Summer camp photo 23">
+                </div>
+                <div class="community-slide">
+                    <img src="{{ url_for('pictures', filename='summerCamp2026/IMG_3588.jpeg') }}" alt="Summer camp photo 28">
+                </div>
+                <div class="community-slide">
+                    <img src="{{ url_for('pictures', filename='summerCamp2026/IMG_3590.jpeg') }}" alt="Summer camp photo 30">
+                </div>
+                <div class="community-slide">
+                    <img src="{{ url_for('pictures', filename='summerCamp2026/IMG_3594.jpeg') }}" alt="Summer camp photo 32">
+                </div>
+                <div class="community-slide">
+                    <img src="{{ url_for('pictures', filename='summerCamp2026/IMG_3623.jpeg') }}" alt="Summer camp photo 34">
                 </div>
             </div>
 
@@ -158,49 +201,48 @@
 </section>
 
 <script>
-    document.querySelectorAll("[data-carousel]").forEach((carousel) => {
-        const slides = Array.from(carousel.querySelectorAll(".community-slide"));
-        const prevBtn = carousel.querySelector("[data-carousel-prev]");
-        const nextBtn = carousel.querySelector("[data-carousel-next]");
-        let index = 0;
-        let autoRotate;
+document.querySelectorAll("[data-carousel]").forEach((carousel) => {
+    const slides = Array.from(carousel.querySelectorAll(".community-slide"));
+    const prevBtn = carousel.querySelector("[data-carousel-prev]");
+    const nextBtn = carousel.querySelector("[data-carousel-next]");
+    let index = Math.max(0, slides.findIndex(slide => slide.classList.contains("active")));
+    let autoRotate;
 
-        function showSlide(newIndex) {
-            if (!slides.length) return;
-            slides[index].classList.remove("active");
-            index = (newIndex + slides.length) % slides.length;
-            slides[index].classList.add("active");
-        }
+    function showSlide(newIndex) {
+        if (!slides.length) return;
+        slides[index].classList.remove("active");
+        index = (newIndex + slides.length) % slides.length;
+        slides[index].classList.add("active");
+    }
 
-        function startAutoRotate() {
-            stopAutoRotate();
-            autoRotate = setInterval(() => {
-                showSlide(index + 1);
-            }, 3000);
-        }
-
-        function stopAutoRotate() {
-            if (autoRotate) {
-                clearInterval(autoRotate);
-                autoRotate = null;
-            }
-        }
-
-        prevBtn?.addEventListener("click", () => {
-            showSlide(index - 1);
-            startAutoRotate();
-        });
-
-        nextBtn?.addEventListener("click", () => {
+    function startAutoRotate() {
+        stopAutoRotate();
+        autoRotate = setInterval(() => {
             showSlide(index + 1);
-            startAutoRotate();
-        });
+        }, 3000);
+    }
 
-        carousel.addEventListener("mouseenter", stopAutoRotate);
-        carousel.addEventListener("mouseleave", startAutoRotate);
+    function stopAutoRotate() {
+        if (autoRotate) {
+            clearInterval(autoRotate);
+            autoRotate = null;
+        }
+    }
 
+    prevBtn?.addEventListener("click", () => {
+        showSlide(index - 1);
         startAutoRotate();
     });
-</script>
 
+    nextBtn?.addEventListener("click", () => {
+        showSlide(index + 1);
+        startAutoRotate();
+    });
+
+    carousel.addEventListener("mouseenter", stopAutoRotate);
+    carousel.addEventListener("mouseleave", startAutoRotate);
+
+    startAutoRotate();
+});
+</script>
 {% endblock %}
