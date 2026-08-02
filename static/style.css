@@ -1,3 +1,62 @@
+/* github copilot generated most of this code */
+
+/* Make nav links wrap cleanly and stay readable */
+nav {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 0.95rem;
+    letter-spacing: 0.02em;
+    white-space: nowrap;
+}
+
+/* Mobile/tablet fix */
+@media (max-width: 700px) {
+    nav {
+        padding: 14px 16px;
+        justify-content: center;
+        gap: 10px;
+    }
+
+    nav a {
+        font-size: 0.85rem;
+        white-space: normal;
+        text-align: center;
+        width: 100%;
+    }
+}
+
+.about-hero {
+    height: clamp(320px, 72vh, 700px);
+}
+
+.about-story-grid,
+.about-history-grid,
+.community-event-layout,
+.community-impact-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 56px;
+}
+
+@media (max-width: 900px) {
+    .about-story-grid,
+    .about-history-grid,
+    .community-event-layout,
+    .community-impact-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+
 body {
     font-family: Arial, sans-serif;
     margin: 0;
@@ -606,4 +665,68 @@ button:hover {
 
 .contact-box button {
     margin-top: 12px;
+}
+
+nav {
+    background-color: maroon;
+    padding: 18px 32px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    position: relative;
+}
+
+.nav-links {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 0.95rem;
+    letter-spacing: 0.02em;
+}
+
+.nav-toggle {
+    display: none;
+    background: white;
+    color: maroon;
+    border: none;
+    border-radius: 8px;
+    padding: 10px 14px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+@media (max-width: 700px) {
+    nav {
+        padding: 14px 16px;
+        align-items: flex-start;
+    }
+
+    .nav-toggle {
+        display: inline-block;
+    }
+
+    .nav-links {
+        display: none;
+        width: 100%;
+        flex-direction: column;
+        gap: 10px;
+        padding-top: 12px;
+    }
+
+    .nav-links.open {
+        display: flex;
+    }
+
+    nav a {
+        width: 100%;
+        text-align: center;
+    }
 }
