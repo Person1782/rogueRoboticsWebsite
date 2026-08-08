@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rogue Robotics | Sponsorship</title>
+    <link rel="stylesheet" href="./static/style.css">
+</head>
+<body>
+    <nav>
+        <button class="nav-toggle" aria-expanded="false" aria-controls="nav-links">
+            Menu
+        </button>
+        <div id="nav-links" class="nav-links">
+            <a href="./index.html">Home</a>
+            <a href="./about.html">About Us</a>
+            <a href="./community.html">Community</a>
+            <a href="./sponsor.html">Sponsor</a>
+        </div>
+    </nav>
+
+    <main>
+        <section class="sponsor-hero">
+            <div class="sponsor-hero-inner">
+                <h1>Sponsorships</h1>
+                <p>
+                    Rogue Robotics is a student-led VEX V5 team that relies on outside support to help
+                    fund robot parts, tools, competition expenses, and outreach efforts.
+                </p>
+                <a href="#sponsor-needed" class="sponsor-button">Sponsor Us</a>
+            </div>
+        </section>
+
+        <section id="sponsor-needed" class="sponsor-needed-section">
+            <div class="sponsor-needed-inner">
+                <h2>We’re Looking for Sponsors</h2>
+                <p>
+                    We are currently looking for sponsors who want to support student engineering,
+                    robotics education, and STEM outreach in our community. Your support helps us
+                    continue building, competing, and creating opportunities for younger students.
+                </p>
+
+                <div class="sponsor-cta-box">
+                    <h3>Interested in supporting Rogue Robotics?</h3>
+                    <p>
+                        We are grateful for community partners who believe in student-led engineering,
+                        STEM outreach, and hands-on robotics education.
+                    </p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        const toggleButton = document.querySelector('.nav-toggle');
+        const navLinks = document.querySelector('.nav-links');
+
+        if (toggleButton && navLinks) {
+            toggleButton.addEventListener('click', () => {
+                const isOpen = navLinks.classList.toggle('open');
+                toggleButton.setAttribute('aria-expanded', String(isOpen));
+            });
+        }
+    </script>
+</body>
+</html>

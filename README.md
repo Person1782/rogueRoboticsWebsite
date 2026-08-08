@@ -1,19 +1,35 @@
 # Rogue Robotics Website
-#### Video Demo: https://www.youtube.com/watch?v=-SgpZIvKFQQ
-#### Description:
 
-Rogue Robotics is a student-led VEX V5 team, and this website is basically our digital home base. I built it to give people a clean, nice-looking place to learn about our team, see what we do, and get in touch with us. The overall goal was to make something that felt professional and organized, but still very personal to the team. I wanted the site to show our mission, our community outreach, and the fact that we are a real high school robotics team that is trying to grow, compete, and inspire younger students.
+This repository is now a static website for GitHub Pages deployment.
 
-This project ended up being a really good mix of frontend design and backend logic, even though the app is not super huge. It’s a Flask website with a few separate pages for different parts of the team’s story. The home page introduces the team and gives visitors a quick idea of what VEX V5 is. The about page tells the team’s history and highlights a bunch of the people on the team. The community page focuses on outreach and shows the work we do outside of competition, like school presentations and summer camps. The sponsor page exists for one purpose: to let people know that we are open to support from local businesses or organizations. The contact page gives a simple form that people can use to send a message. That message is stored in a small SQLite database so the team can read it later from an admin dashboard.
+## What is included
 
-One of the coolest parts of this project is that it is not just a static poster website. The backend actually does things. The main Python file, app.py, is where the whole Flask app lives. It defines all the routes for the site, like the home page, about page, community page, sponsor main page, and contact page. It also handles the contact form submission logic, checks whether the required fields are filled in, and stores them in the database using the SQL library. The app also has a route that serves images from the pictures folder, which is helpful because all of the gallery-style photos on the site are stored there instead of being uploaded to a separate media service. Another part of the backend is the admin login system. A user can visit the admin login page, enter the password (which I will change once I buy a domain and publish this website), and then get access to the admin page that shows every message from the contact form in reverse chronological order. That admin route is protected by Flask session data, which means the user can only see the page if the password was accepted in the login step.
+The site presents Rogue Robotics with the following static pages:
 
-The templates folder is the structural heart of the site. Each HTML file corresponds to a different page or reusable layout, and the whole site uses Jinja templates so repeated elements do not need to be copied over and over again. base.html gives the navbar and shared page structure, while the other template files plug into that base layout and fill in the content. I used Jinja here because it’s simple to work with and it fit the project's scale well. Honestly, I wanted the site to feel polished without making the code much more complicated than it needed to be. That was a big design choice for me: I could have gone with a heavier frontend framework or a much more elaborate backend, but that would have taken way more time and made the project harder to manage. Since the goal was a team website that looked good and worked reliably, Flask plus HTML templates was the smart choice.
+- Home page: [index.html](index.html)
+- About page: [about.html](about.html)
+- Community page: [community.html](community.html)
+- Sponsorship page: [sponsor.html](sponsor.html)
 
-The static folder is where the CSS lives, and that file is responsible for the visual design of the entire site. I used a dark maroon theme, large hero sections, responsive grids, and card/section layouts so the pages would look visually different from one another but still feel like they belong to the same brand. The website is meant to feel like a modern team landing page, and the styling definitely helps that. I also made the layout responsive so it does not completely break when someone opens it on a smaller screen. That part matters because a lot of people will look at the site on phones or tablets, not just from a laptop.
+The styling lives in [static/style.css](static/style.css) and the image assets are kept in the [pictures](pictures) directory.
 
-The pictures folder is one of the most important parts of the whole project because it stores the real team photos, event photos, collages, and outreach images. Those images are not hardcoded into the HTML; instead, the Python app serves them safely through a route so the templates can reference them cleanly. I think that was a cool decision because it keeps the site organized and makes the image usage way cleaner than dumping everything into the templates.
+## What was removed
 
-The requirements file is pretty small, which is nice. It only includes Flask, CS50, and Gunicorn. That makes the app easy to install and easy to run, and it also shows that I kept the project lightweight. The main thing I had to think about when building it was balancing what the site should do versus how much time I wanted to spend on backend security. I debated a more secure admin system with hashed passwords, real user accounts, and a better database layer, but for a team website like this, that would have felt overengineered. Instead, I used session-based access and a simple password check. It’s not the most advanced production setup, but it gets the job done for a school project and keeps the app easy to understand.
+The site no longer depends on Flask, a SQLite database, CS50, admin login routes, session-based admin access, or server-side contact message storage.
 
-In the end, this project is a website that represents Rogue Robotics in a way that actually feels real. It has the team’s story, the community work, the sponsor pitch, and the ability to collect questions or messages from visitors. It was a fun project to build because it combined design, storytelling, and coding all in one. I’m proud of it because it shows what we do as a team and how we want to present ourselves to the world.
+## GitHub Pages deployment
+
+Because this is a static website, you can publish the repository root directly as a GitHub Pages site.
+
+Typical GitHub Pages flow:
+
+1. Push these files to a GitHub repository.
+2. In GitHub, open Settings → Pages.
+3. Choose the branch to deploy from, usually `main`.
+4. Use the root folder as the Pages source.
+
+The site can also be tested locally with a static HTTP server:
+
+python3 -m http.server 8000
+
+Then open http://localhost:8000 in a browser.
