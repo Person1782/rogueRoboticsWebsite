@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact | Rogue Robotics</title>
+  <link rel="stylesheet" href="static/style.css?v=2">
+</head>
+
+<body>
+  <nav>
+    <button class="nav-toggle" aria-label="Toggle navigation menu">
+      Menu
+    </button>
+
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="community.html">Community</a>
+      <a href="sponsor.html">Sponsors</a>
+      <a href="contact.html">Contact</a>
+    </div>
+  </nav>
+
+  <main>
+    <section class="contact-hero">
+      <div class="contact-hero-inner">
+        <h1>Contact Us</h1>
+
+        <p>
+          Have a question, partnership opportunity, or want to learn more
+          about Rogue Robotics? We would love to hear from you.
+        </p>
+      </div>
+    </section>
+
+    <section class="contact-details-section">
+      <div class="contact-details-card">
+        <div class="contact-icon" aria-hidden="true">&#9993;</div>
+
+        <div class="contact-content">
+          <h2>Get in Touch</h2>
+          <p class="contact-subtitle">EMAIL US</p>
+
+          <a
+            class="email-link"
+            href="mailto:rogue.robotics.vex@gmail.com"
+          >
+            rogue.robotics.vex@gmail.com
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    const navToggle = document.querySelector(".nav-toggle");
+    const navLinks = document.querySelector(".nav-links");
+
+    navToggle.addEventListener("click", () => {
+      navLinks.classList.toggle("open");
+    });
+  </script>
+</body>
+</html>
